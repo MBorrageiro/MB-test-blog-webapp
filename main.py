@@ -155,7 +155,7 @@ def get_all_posts():
 def show_post(post_id):
     requested_post = db.get_or_404(BlogPost, post_id)
     post_comments = db.session.execute(db.select(Comment).where(Comment.blog_id==post_id)).scalars().all()
-    print(post_comments[0])
+    # print(post_comments[0])
     commForm = CommentForm()
     if commForm.validate_on_submit():
         if current_user.is_authenticated:
